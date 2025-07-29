@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blackfit Unisex Gym | Premium Fitness Club in Your City</title>
+  <meta name="description" content="Join Blackfit Unisex Gym – The Premium Fitness Club in your city. Get fit, stay strong.">
+  <link rel="icon" type="image/png" href="logo1.png" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Bebas Neue', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #000;
+      color: #f6d743;
+    }
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      letter-spacing: 3px;
+      animation: glow 1.5s ease-in-out infinite alternate;
+      line-height: 1.2;
+      max-width: 90%;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #f6d743, 0 0 20px #f6d74388;
+      }
+      to {
+        text-shadow: 0 0 15px #ff5733, 0 0 30px #ff5733aa;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+        padding: 0 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+   <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <h1>Blackfit Unisex Gym</h1>
+  </section>
+
+
+<!-- ACHIEVEMENTS SECTION -->
+<section class="achievements" id="achievements">
+  <div class="container">
+    <h2>Our Achievements</h2>
+    <div class="achievements-grid">
+      <div class="achievement-box">
+        <h3><span class="counter" data-target="150">0</span>+</h3>
+        <p>Body Transformations</p>
+      </div>
+      <div class="achievement-box">
+        <h3><span class="counter" data-target="50">0</span>+</h3>
+        <p>Online Clients</p>
+      </div>
+      <div class="achievement-box">
+        <h3><span class="counter" data-target="100">0</span>%</h3>
+        <p>Natural Training</p>
+      </div>
+      <div class="achievement-box">
+        <h3><span class="counter" data-target="10">0</span>+</h3>
+        <p>Years of Experience</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .achievements {
+    background-color: #111;
+    color: #f6d743;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .achievements h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-family: 'Bebas Neue', sans-serif;
+    text-shadow: 0 0 10px #f6d743aa;
+  }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .achievement-box {
+    background: #1c1c1c;
+    padding: 30px 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px #ff573340;
+  }
+
+  .achievement-box h3 {
+    font-size: 2.5rem;
+    color: #ff5733;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 5px #ff5733aa;
+  }
+
+  .achievement-box p {
+    font-size: 1rem;
+    color: #eaeaea;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .achievement-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #ff5733;
+  }
+
+  @media (max-width: 768px) {
+    .achievements h2 {
+      font-size: 2rem;
+    }
+
+    .achievement-box h3 {
+      font-size: 2rem;
+    }
+
+    .achievement-box p {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .achievements {
+      padding: 40px 15px;
+    }
+
+    .achievements h2 {
+      font-size: 1.8rem;
+    }
+
+    .achievement-box {
+      padding: 20px 15px;
+    }
+
+    .achievement-box h3 {
+      font-size: 1.8rem;
+    }
+  }
+</style>
+
+<!-- ✅ JavaScript for Count Animation -->
+<script>
+  const counters = document.querySelectorAll('.counter');
+  let counted = false;
+
+  function animateCounts() {
+    if (counted) return;
+    counted = true;
+
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      const speed = 100;
+      const step = Math.ceil(target / speed);
+      let count = 0;
+
+      const updateCount = () => {
+        count += step;
+        if (count >= target) {
+          counter.innerText = target;
+        } else {
+          counter.innerText = count;
+          requestAnimationFrame(updateCount);
+        }
+      };
+      updateCount();
+    });
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      animateCounts();
+    }
+  }, { threshold: 0.6 });
+
+  observer.observe(document.querySelector('#achievements'));
+</script>
+
+
+
+
+
+<!-- ABOUT SECTION -->
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="about-content">
+            <h2 class="section-title" data-aos="fade-up">About <span>Blackfit</span></h2>
+      <p>
+        At <strong>Blackfit Unisex Gym</strong>, we’re more than just a fitness center — we’re a community built on strength, wellness, and transformation. Whether you're a beginner or a pro, our expert trainers and modern equipment are here to help you crush your fitness goals.
+      </p>
+      <p>
+        Join a motivating environment where every rep takes you one step closer to a better you. Your fitness journey begins here!
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?fit=crop&w=800&h=600" alt="Gym Image">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION CSS -->
+<style>
+  .about-section {
+    padding: 80px 20px;
+    background: #111;
+    color: #fff;
+  }
+
+  .about-section .container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-content {
+    flex: 1 1 500px;
+  }
+
+  .about-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+
+  .about-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  .about-image {
+    flex: 1 1 400px;
+  }
+
+  .about-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  }
+
+  @media (max-width: 768px) {
+    .about-section .container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .about-content h2 {
+      font-size: 30px;
+    }
+
+    .about-content p {
+      font-size: 16px;
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- AOS Animate on Scroll CDN -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<section class="why-choose-us">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Why Choose <span>Blackfit</span>?</h2>
+    <div class="feature-grid">
+
+      <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon">
+          <img src="https://img.icons8.com/fluency-systems-filled/48/FFD700/dumbbell.png" alt="Latest Equipment Icon" />
+        </div>
+        <h3>Latest Equipment</h3>
+        <p>Get access to the most modern and high-end fitness machines.</p>
+      </div>
+
+      <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+        <div class="icon">
+          <img src="fitness-coach-icon.png" alt="Expert Trainers Icon" />
+        </div>
+        <h3>Expert Trainers</h3>
+        <p>Train under certified professionals to crush your goals efficiently.</p>
+      </div>
+
+      <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+        <div class="icon">
+          <img src="https://img.icons8.com/fluency-systems-filled/48/FFD700/clock.png" alt="Flexible Timings Icon" />
+        </div>
+        <h3>Flexible Timings</h3>
+        <p>Open early till late. Perfect for busy professionals and students.</p>
+      </div>
+
+      <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
+        <div class="icon">
+          <img src="https://img.icons8.com/fluency-systems-filled/48/FFD700/wallet.png" alt="Budget Friendly Icon" />
+        </div>
+        <h3>Budget Friendly</h3>
+        <p>Plans that won’t hurt your pocket with zero compromise on quality.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.why-choose-us {
+  background: #0a0a0a;
+  padding: 80px 20px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 60px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.section-title span {
+  color: #FFD700;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px #FFD70044;
+}
+
+.icon {
+  margin-bottom: 15px;
+}
+
+.icon img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.feature-card h3 {
+  color: #FFD700;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+/* 🔄 Responsive Tweaks */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+
+  .feature-card {
+    padding: 20px 15px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+  }
+
+  .icon img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .feature-card p {
+    font-size: 0.85rem;
+  }
+
+  .icon img {
+    width: 45px;
+    height: 45px;
+  }
+}
+</style>
+
+<!-- Init AOS -->
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
+
+
+
+
+<section class="transformation-slider-section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Real <span>Transformations</span></h2>
+    <div class="slider-wrapper">
+      <button class="nav-btn prev-btn">❮</button>
+
+      <div class="slider">
+        <div class="slide" data-index="0">
+          <img src="Trans1.jpg" alt="Transformation 1">
+          <div class="caption">💪 35 Days | 12.5 kg Loss</div>
+        </div>
+        <div class="slide" data-index="1">
+          <img src="Trans2.jpg" alt="Transformation 2">
+          <div class="caption">🔥 18 kg Fat Loss</div>
+        </div>
+        <div class="slide" data-index="2">
+          <img src="Trans3.jpg" alt="Transformation 3">
+          <div class="caption">⭐️ Incredible Difference</div>
+        </div>
+      </div>
+
+      <button class="nav-btn next-btn">❯</button>
+    </div>
+  </div>
+</section>
+
+<style>
+.transformation-slider-section {
+  background: #0c0c0c;
+  padding: 80px 20px;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.transformation-slider-section .section-title {
+  font-size: 2.8rem;
+  margin-bottom: 50px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.transformation-slider-section .section-title span {
+  color: #FFD700;
+}
+
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 2rem;
+  color: #FFD700;
+  cursor: pointer;
+  z-index: 10;
+  padding: 10px 20px;
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 960px;
+  position: relative;
+}
+
+.slide {
+  flex: 0 0 300px;
+  opacity: 0.4;
+  filter: blur(4px);
+  transition: all 0.4s ease;
+  transform: scale(0.9);
+  position: relative;
+}
+
+.slide.active {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.slide img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.caption {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #FFD700;
+  font-size: 1.1rem;
+}
+
+/* ✅ Mobile Optimizations */
+@media (max-width: 768px) {
+  .transformation-slider-section .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .slider-wrapper {
+    flex-direction: column;
+  }
+
+  .slider {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .slide {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    opacity: 1 !important;
+    filter: none !important;
+    transform: scale(1) !important;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  .caption {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide {
+    flex: 0 0 90%;
+  }
+
+  .caption {
+    font-size: 0.9rem;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelectorAll('.slide');
+  const nextBtn = document.querySelector('.next-btn');
+  const prevBtn = document.querySelector('.prev-btn');
+  let current = 0;
+
+  function updateSlider() {
+    slides.forEach((slide, index) => {
+      slide.classList.remove('active');
+      if (index === current) {
+        slide.classList.add('active');
+      }
+    });
+  }
+
+  nextBtn?.addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    updateSlider();
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    updateSlider();
+  });
+
+  updateSlider();
+});
+</script>
+
+
+
+
+
+
+
+
+<!-- MEMBERSHIP OPTIONS SECTION -->
+<section id="membership" class="membership-section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Exclusive <span>Membership</span> Plans</h2>
+    <div class="membership-cards">
+      
+      <!-- Basic Plan -->
+      <div class="membership-card" data-aos="flip-left" data-aos-delay="100">
+        <h3 class="plan-title">Basic Bliss</h3>
+        <p class="price">₹999 <span>/month</span></p>
+        <ul class="features">
+          <li>2 Full Body Massages</li>
+          <li>Free Welcome Drink</li>
+          <li>Priority Booking</li>
+        </ul>
+        <a href="#contact" class="btn-membership">Join Now</a>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="membership-card featured" data-aos="flip-up" data-aos-delay="200">
+        <h3 class="plan-title">Premium Glow</h3>
+        <p class="price">₹1999 <span>/month</span></p>
+        <ul class="features">
+          <li>4 Therapy Sessions</li>
+          <li>Luxury Spa Access</li>
+          <li>10% Off on Products</li>
+        </ul>
+        <a href="#contact" class="btn-membership">Join Now</a>
+      </div>
+
+      <!-- Elite Plan -->
+      <div class="membership-card" data-aos="flip-right" data-aos-delay="300">
+        <h3 class="plan-title">Elite Escape</h3>
+        <p class="price">₹2999 <span>/month</span></p>
+        <ul class="features">
+          <li>Unlimited Spa Access</li>
+          <li>Free Facials & Steam</li>
+          <li>Exclusive VIP Lounge</li>
+        </ul>
+        <a href="#contact" class="btn-membership">Join Now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+.membership-section {
+  background: #0f0f0f url('bg-glow.jpg') center/cover no-repeat;
+  padding: 100px 20px;
+  color: white;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  color: white;
+  margin-bottom: 60px;
+}
+
+.section-title span {
+  color: #FFD700;
+}
+
+.membership-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.membership-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  width: 300px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
+  transition: 0.4s;
+  position: relative;
+}
+
+.membership-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+}
+
+.featured {
+  border: 2px solid #FFD700;
+  background: rgba(255, 215, 0, 0.07);
+}
+
+.plan-title {
+  font-size: 1.8rem;
+  color: #FFD700;
+  margin-bottom: 15px;
+}
+
+.price {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.price span {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+.features li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #333;
+}
+
+.btn-membership {
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 50px;
+  background: #FFD700;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-membership:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* ✅ Mobile Optimizations */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .membership-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .membership-card {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .plan-title {
+    font-size: 1.6rem;
+  }
+
+  .price {
+    font-size: 1.3rem;
+  }
+
+  .features {
+    font-size: 0.95rem;
+  }
+
+  .btn-membership {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+}
+</style>
+
+<!-- AOS Init (Include before </body>) -->
+<script>
+  AOS.init();
+</script>
+
+
+
+
+
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Book <span>Free Trial</span></h2>
+    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+      Have questions or ready to get started? Send us a message!
+    </p>
+
+    <form class="contact-form" action="https://formspree.io/f/yourID" method="POST" data-aos="fade-up" data-aos-delay="200">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="tel" name="phone" placeholder="Mobile Number" required />
+      <textarea name="message" placeholder="Message / Goal" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="whatsapp-link" data-aos="fade-up" data-aos-delay="400">
+      <p>Or message us directly on WhatsApp:</p>
+      <a href="https://wa.me/918941234567" target="_blank">📱 Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STYLES -->
+<style>
+.contact-section {
+  background: #0a0a0a;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact-section .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: 700;
+}
+
+.contact-section .section-title span {
+  color: #FFD700;
+}
+
+.contact-section .section-subtitle {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #FFD700;
+  outline: none;
+}
+
+.contact-form button {
+  background-color: #FFD700;
+  border: none;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #e6c200;
+}
+
+.whatsapp-link {
+  margin-top: 30px;
+  font-size: 1rem;
+}
+
+.whatsapp-link a {
+  color: #25D366;
+  font-weight: bold;
+  text-decoration: none;
+}
+</style>
+
+
+
+<!-- FOOTER SECTION -->
+<footer style="background-color: #000; color: #fff; padding: 40px 20px; font-family: 'Bebas Neue', sans-serif; position: relative;">
+  <style>
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    .footer-column {
+      flex: 1 1 300px;
+      margin-bottom: 20px;
+      padding: 0 10px;
+    }
+
+    .footer-column h2,
+    .footer-column h3 {
+      color: #f6d743;
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #f6d743;
+      text-decoration: none;
+      margin: 0 8px;
+      display: inline-block;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+
+    /* Floating Home Button */
+    .home-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #f6d743;
+      color: #000;
+      font-size: 24px;
+      padding: 10px 14px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      text-decoration: none;
+      transition: transform 0.3s, background-color 0.3s;
+      z-index: 1000;
+    }
+
+    .home-btn:hover {
+      background-color: #fff100;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-column {
+        flex: 1 1 100%;
+      }
+
+      .footer-links a {
+        display: block;
+        margin: 5px 0;
+      }
+    }
+  </style>
+
+  <div class="footer-container">
+    <!-- Left -->
+    <div class="footer-column">
+      <h2>BLACKFIT GYM</h2>
+      <p>Your Transformation is Our Passion.<br>Join the movement!</p>
+    </div>
+
+    <!-- Center -->
+    <div class="footer-column">
+      <h3>Contact Us</h3>
+      <p>📍 Tiruppur, Tamil Nadu</p>
+      <p>📞 +91 98765 43210</p>
+      <p>✉️ blackfitgym@email.com</p>
+    </div>
+
+    <!-- Right -->
+    <div class="footer-column">
+      <h3>Follow Us</h3>
+      <div class="footer-links">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+  </div>
+
+  <hr style="margin: 30px 0; border-color: #444;">
+  <p class="footer-bottom">&copy; 2025 Blackfit Unisex Gym. All rights reserved.</p>
+</footer>
+
+
+<!-- Floating Home Button -->
+<a href="#hero" class="home-btn" title="Back to Top">↑</a>
+
+
+
+
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+
+</body>
+</html>
+
+
+
