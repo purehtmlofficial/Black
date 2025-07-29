@@ -8,8 +8,8 @@
   <link rel="icon" type="image/png" href="logo1.png" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
 
 
 <!-- Open Graph for WhatsApp & Social Sharing -->
@@ -87,6 +87,8 @@
   <section id="hero" class="hero">
     <h1>Blackfit Unisex Gym</h1>
   </section>
+
+  
 
 
 <!-- ACHIEVEMENTS SECTION -->
@@ -237,12 +239,14 @@
 
 
 
-
 <!-- ABOUT SECTION -->
 <section id="about" class="about-section">
   <div class="container">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?fit=crop&w=800&h=600" alt="Gym Image">
+    </div>
     <div class="about-content">
-            <h2 class="section-title" data-aos="fade-up">About <span>Blackfit</span></h2>
+      <h2 class="section-title" data-aos="fade-up">About <span>Blackfit</span></h2>
       <p>
         At <strong>Blackfit Unisex Gym</strong>, we’re more than just a fitness center, we’re a community built on strength, wellness, and transformation. Whether you're a beginner or a pro, our expert trainers and modern equipment are here to help you crush your fitness goals.
       </p>
@@ -250,13 +254,10 @@
         Join a motivating environment where every rep takes you one step closer to a better you. Your fitness journey begins here!
       </p>
     </div>
-    <div class="about-image">
-      <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?fit=crop&w=800&h=600" alt="Gym Image">
-    </div>
   </div>
 </section>
 
-<!-- ABOUT SECTION CSS -->
+<!-- CSS -->
 <style>
   .about-section {
     padding: 80px 20px;
@@ -271,11 +272,18 @@
     flex-wrap: wrap;
     gap: 40px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
 
+  .about-image,
   .about-content {
-    flex: 1 1 500px;
+    flex: 1 1 45%;
+  }
+
+  .about-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   }
 
   .about-content h2 {
@@ -290,42 +298,33 @@
     margin-bottom: 15px;
   }
 
-  .about-image {
-    flex: 1 1 400px;
-  }
-
-  .about-image img {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-  }
-
+  /* Mobile responsiveness */
   @media (max-width: 768px) {
     .about-section .container {
       flex-direction: column;
-      text-align: center;
+      text-align: left;
+    }
+
+    .about-image,
+    .about-content {
+      flex: 1 1 100%;
     }
 
     .about-content h2 {
-      font-size: 30px;
+      font-size: 28px;
+      text-align: center;
     }
 
     .about-content p {
       font-size: 16px;
+      text-align: justify;
+    }
+
+    .about-image {
+      order: -1; /* Image on top for mobile */
     }
   }
 </style>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -975,8 +974,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
 <!-- FOOTER SECTION -->
-<footer style="background-color: #000; color: #fff; padding: 40px 20px; font-family: 'Bebas Neue', sans-serif; position: relative;">
+<footer style="background-color: #000; color: #fff; padding: 30px 15px; font-family: 'Bebas Neue', sans-serif; position: relative;">
   <style>
     .footer-container {
       max-width: 1200px;
@@ -997,6 +997,13 @@ document.addEventListener("DOMContentLoaded", function () {
     .footer-column h3 {
       color: #f6d743;
       margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .footer-column p,
+    .footer-links a {
+      font-size: 14px;
+      line-height: 1.5;
     }
 
     .footer-links a {
@@ -1004,36 +1011,45 @@ document.addEventListener("DOMContentLoaded", function () {
       text-decoration: none;
       margin: 0 8px;
       display: inline-block;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
     }
 
     .footer-bottom {
       text-align: center;
-      font-size: 14px;
-      margin-top: 30px;
+      font-size: 12px;
+      margin-top: 25px;
     }
 
-    /* Floating Home Button */
+    /* Floating Home Icon Button (No Background) */
     .home-btn {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background-color: #f6d743;
-      color: #000;
-      font-size: 24px;
-      padding: 10px 14px;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      bottom: 20px;
+      right: 20px;
+      color: white;
+      font-size: 26px;
       text-decoration: none;
-      transition: transform 0.3s, background-color 0.3s;
-      z-index: 1000;
+      z-index: 9999;
+      transition: color 0.3s ease;
     }
 
     .home-btn:hover {
-      background-color: #fff100;
-      transform: scale(1.1);
+      color: #f6d743;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
     }
 
     @media (max-width: 768px) {
+      footer {
+        padding: 20px 10px;
+      }
+
       .footer-container {
         flex-direction: column;
         align-items: center;
@@ -1042,11 +1058,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
       .footer-column {
         flex: 1 1 100%;
+        padding: 0;
       }
 
+      .footer-column h2,
+      .footer-column h3 {
+        font-size: 18px;
+      }
+
+      .footer-column p,
       .footer-links a {
-        display: block;
-        margin: 5px 0;
+        font-size: 13px;
+      }
+
+      .footer-bottom {
+        font-size: 11px;
+      }
+
+      .home-btn {
+        font-size: 24px;
+        bottom: 15px;
+        right: 15px;
       }
     }
   </style>
@@ -1076,23 +1108,24 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </div>
 
-  <hr style="margin: 30px 0; border-color: #444;">
+  <hr style="margin: 25px 0; border-color: #444;">
   <p class="footer-bottom">&copy; 2025 Blackfit Unisex Gym. All rights reserved.</p>
 </footer>
 
-
 <!-- Floating Home Button -->
-<a href="#hero" class="home-btn" title="Back to Top">↑</a>
+<a href="#hero" class="home-btn" title="Back to Top">
+  <i class="fas fa-home"></i>
+</a>
 
-
-
-
+<!-- FontAwesome (for the home icon) -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <!-- AOS JS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
 </script>
+
 
 
 
